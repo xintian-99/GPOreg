@@ -1,4 +1,4 @@
-# GPOreg: Gaussian Primitive Optimized Deformable Retinal Image Registration
+# GPO: Gaussian Primitive Optimized Deformable Retinal Image Registration
 
 **Early accepted by MICCAI 2025**
 
