@@ -1,10 +1,10 @@
 # 🧿 GPOreg: Gaussian Primitive Optimized Deformable Retinal Image Registration
 
-✅ **Early accepted by MICCAI 2025**  
-📌 **Deformable retinal image registration using Gaussian Primitive Optimization (GPO)** with adaptive local deformations and descriptor-based control nodes.
+**📄 Early accepted by MICCAI 2025** 
 
-🔗 **arXiv**: https://arxiv.org/abs/2508.16852  
-🔗 **Springer (MICCAI proceedings chapter)**: https://link.springer.com/chapter/10.1007/978-3-032-04965-0_21  
+**Authors**: Xin Tian, Jiazheng Wang, Yuxi Zhang, Xiang Chen, Renjiu Hu, Gaolei Li, Min Liu, Hang Zhang
+
+[![arXiv](https://img.shields.io/badge/arXiv-2508.16852-b31b1b.svg)](https://arxiv.org/abs/2508.16852) [![Springer](https://img.shields.io/badge/Springer-MICCAI%202025-37677e.svg)](https://link.springer.com/chapter/10.1007/978-3-032-04965-0_21)
 
 ---
 
@@ -28,14 +28,14 @@ On the FIRE dataset, GPOreg achieves:
 - **Target Registration Error**: Reduced from 5.9px to 2.4px
 - **AUC at 25px**: Increased from 0.770 to 0.938
 
-## 📦 Installation
+## Installation
 
 ### 1) Install Python dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2) 🧱 Install PyTorch3D (required)
+### 2) Install PyTorch3D (required)
 
 This project uses `pytorch3d.ops.knn_points` for fast KNN on GPU. PyTorch3D must be installed with **CUDA support**, otherwise you may see:
 
@@ -55,9 +55,13 @@ Install PyTorch3D from the official wheel index:
 
 ---
 
-### 🗂️ Dataset format (FIRE)
+### Dataset format (FIRE)
 
 This repo includes a FIRE dataset loader: `loaders/firereg_loader.py`.
+
+#### Download [FIRE dataset (official)](https://projects.ics.forth.gr/cvrl/fire/)
+
+> After downloading, place the FIRE files under `--datasets_path` and ensure the directory structure matches the layout below (or adjust the loader paths accordingly).
 
 Your `--datasets_path` must contain:
 
@@ -70,7 +74,7 @@ Your `--datasets_path` must contain:
 
 ## 🚀 Quick Start + 🧪 Modes
 
-### 🧩 DCN mode (descriptor control nodes) — **recommended**
+### 🧩 DCN mode (descriptor control nodes)
 DCN initializes control nodes from precomputed descriptor correspondences (e.g., `geo_kps_<geo_num>/<sub_id>_1_2.csv`).
 
 - Run DCN (example with `geo_num=1000`):  
@@ -79,7 +83,7 @@ DCN initializes control nodes from precomputed descriptor correspondences (e.g.,
 - DCN single-pair run (P14, 2 iterations, save warped images):  
   `python gpo.py --field_split P --only_sub P14 --n_iters 2 --save_images 1 --save_losses 0`
 
-### 🟦 GCN mode (grid control nodes) — fallback
+### 🟦 GCN mode (grid control nodes)
 GCN uses a regular control-node grid (no descriptor initialization); grid resolution is controlled by `--node_shape`.
 
 - Run GCN (example with `node_shape=30`):  
