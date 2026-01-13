@@ -14,13 +14,14 @@
 
 - **DCN (Descriptor-based Control Nodes)**: strategically placed at salient anatomical structures (e.g., major vessels), or
 - **GCN (Grid Control Nodes)**: regular grid nodes used when descriptor nodes are not available.
-
+<!-- 
 ### Key Innovation
 
 - **Gaussian Primitive Optimization (GPO)**: Each control node is modeled as a Gaussian primitive with trainable position, displacement, and radius
 - **Adaptive Spatial Influence**: Nodes adapt their influence to local deformation scales
 - **KNN Gaussian Interpolation**: Blends local transformations into globally coherent displacement fields
 - **Strategic Node Placement**: Anchors nodes in high-gradient regions to ensure robust gradient flow
+-->
 
 ## Performance
 
