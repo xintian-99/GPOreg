@@ -68,26 +68,26 @@ Your `--datasets_path` must contain:
 - `<data_root>/geo_kps_1000/`  
   - `P01_1_2.csv`, ...
 
----
+## 🚀 Quick Start + 🧪 Modes
 
-## 🚀 Quick Start + 🧪 Modes (DCN-focused)
+### 🧩 DCN mode (descriptor control nodes) — **recommended**
+DCN initializes control nodes from precomputed descriptor correspondences (e.g., `geo_kps_<geo_num>/<sub_id>_1_2.csv`).
 
-### DCN mode (descriptor control nodes)
-DCN initializes control nodes from precomputed descriptor correspondences:
-Run DCN (example with `geo_num=1000`):
-- `python gpo.py --enable_geo_init 1 --geo_num 1000`
-- 
-**GCN quick sanity (split A, 2 iterations)**  
-- `python gpo.py --n_iters 2 --enable_geo_init 0 --field_split A`
+- Run DCN (example with `geo_num=1000`):  
+  `python gpo.py --enable_geo_init 1 --geo_num 1000`
 
-### GCN mode (grid control nodes) 
-GCN uses a regular control-node grid (no descriptor initialization):
+- DCN single-pair run (P14, 2 iterations, save warped images):  
+  `python gpo.py --field_split P --only_sub P14 --n_iters 2 --save_images 1 --save_losses 0`
 
-Run GCN (example with `node_shape=30`):
-- `python gpo.py --enable_geo_init 0 --node_shape 30`
-- 
-**DCN single-pair run (P14, 2 iterations, save warped images)**  
-- `python gpo.py --field_split P --only_sub P14 --n_iters 2 --save_images 1 --save_losses 0`
+### 🟦 GCN mode (grid control nodes) — fallback
+GCN uses a regular control-node grid (no descriptor initialization); grid resolution is controlled by `--node_shape`.
+
+- Run GCN (example with `node_shape=30`):  
+  `python gpo.py --enable_geo_init 0 --node_shape 30`
+
+- Minimal GCN sanity run (split A, 2 iterations):  
+  `python gpo.py --n_iters 2 --enable_geo_init 0 --field_split A`
+
 ---
 
 ### ⚙️ Key arguments
