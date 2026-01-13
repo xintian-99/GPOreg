@@ -61,28 +61,13 @@ This repo includes a FIRE dataset loader: `loaders/firereg_loader.py`.
 
 Your `--datasets_path` must contain:
 
-- `<data_root>/ipa_org_img/`  
+- `<data_root>/img/`  
   - `P01_1.jpg`, `P01_2.jpg`, ...
-- `<data_root>/ipa_txt/`  
+- `<data_root>/gt_kps/`  
   - `control_points_P01_1_2.txt`, ...
 - `<data_root>/geo_kps_1000/`  
   - `P01_1_2.csv`, ...
 
-#### ❓ What is `ipa_*`?
-
-These are folder names used by this repo’s FIRE packaging:
-
-- `ipa_org_img/` → input retinal images  
-- `ipa_txt/` → FIRE landmark/control point text files  
-- `geo_kps_<N>/` → precomputed descriptor correspondences used for geo initialization (DCN mode)
-
-They are not a universal FIRE naming requirement—just the structure expected by `firereg_loader.py`. If your FIRE files are stored differently, edit:
-
-- `self.img_folder = 'ipa_org_img'`
-- `self.kps_folder = 'ipa_txt'`
-- `self.geo_folder = f'geo_kps_{self.geo_num}'`
-
----
 
 ### 🚀 Quick Start (exact commands)
 
