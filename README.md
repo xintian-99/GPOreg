@@ -72,19 +72,20 @@ Your `--datasets_path` must contain:
 
 ## 🚀 Quick Start + 🧪 Modes (DCN-focused)
 
-### DCN mode (descriptor control nodes) — **recommended / main**
+### DCN mode (descriptor control nodes)
 DCN initializes control nodes from precomputed descriptor correspondences:
 Run DCN (example with `geo_num=1000`):
 - `python gpo.py --enable_geo_init 1 --geo_num 1000`
+- 
 **GCN quick sanity (split A, 2 iterations)**  
 - `python gpo.py --n_iters 2 --enable_geo_init 0 --field_split A`
 
-### GCN mode (grid control nodes) — fallback
+### GCN mode (grid control nodes) 
 GCN uses a regular control-node grid (no descriptor initialization):
-- grid resolution controlled by `--node_shape`
 
 Run GCN (example with `node_shape=30`):
 - `python gpo.py --enable_geo_init 0 --node_shape 30`
+- 
 **DCN single-pair run (P14, 2 iterations, save warped images)**  
 - `python gpo.py --field_split P --only_sub P14 --n_iters 2 --save_images 1 --save_losses 0`
 ---
