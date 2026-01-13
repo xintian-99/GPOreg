@@ -59,3 +59,45 @@ If you use this code in your research, please cite our MICCAI 2025 paper:
     year={2025}
 }
 ```
+
+# 🧿 GPO: Gaussian Primitive Optimized Deformable Retinal Image Registration
+
+📄 **Paper (MICCAI 2025, LNCS 15963)**: *Gaussian Primitive Optimized Deformable Retinal Image Registration*  
+🔗 **arXiv**: https://arxiv.org/abs/2508.16852  
+🔗 **Springer (MICCAI proceedings chapter)**: https://link.springer.com/chapter/10.1007/978-3-032-04965-0_21  
+
+This repository contains the reference implementation for the paper above, providing a **pairwise** deformable retinal registration method based on **Gaussian primitives** and **KNN-weighted blending** optimized via image similarity losses.
+
+---
+
+## ✨ What this code does (high level)
+
+Given a retinal image pair:
+
+- **Fixed** image: `*_1.jpg`
+- **Moving** image: `*_2.jpg`
+
+the method optimizes a deformation model parameterized by **Gaussian control nodes**. Each node contributes a local motion; pixel-wise displacement is obtained by **KNN Gaussian weighting**. The model parameters are optimized directly (test-time optimization) to align the two images, and performance is evaluated using landmark error (**TRE**) and threshold-based success metrics.
+
+---
+
+## 🧠 Modes supported (paper ↔ code)
+
+The paper describes two practical setups:
+
+- **🧩 GPO-DCN (Descriptor/Correspondence Control Nodes)**  
+  Uses precomputed dense correspondences (“geo points”) to initialize node locations and translations.  
+  ✅ In code: `--enable_geo_init 1`
+
+- **🟦 GPO-GCN (Grid Control Nodes)**  
+  Uses a regular grid of control nodes when correspondences are unavailable.  
+  ✅ In code: `--enable_geo_init 0` (uses `--node_shape`)
+
+---
+
+## 📦 Installation
+
+### 1) Create environment and install dependencies
+```bash
+pip install -r requirements.txt
+
