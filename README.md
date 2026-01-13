@@ -35,18 +35,18 @@ On the FIRE dataset, GPOreg achieves:
 pip install -r requirements.txt
 ```
 
-## 🧱 Install PyTorch3D (required)
+### 2) 🧱 Install PyTorch3D (required)
 
 This project uses `pytorch3d.ops.knn_points` for fast KNN on GPU. PyTorch3D must be installed with **CUDA support**, otherwise you may see:
 
 > `RuntimeError: Not compiled with GPU support`
 
-### Option A (recommended): prebuilt wheels (match Python / PyTorch / CUDA)
+#### Option A (recommended): prebuilt wheels (match Python / PyTorch / CUDA)
 Install PyTorch3D from the official wheel index:
 
 - Command: `pip install pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/<WHEEL_INDEX>/download.html`
 
-### Option B (fallback): build from source
+#### Option B (fallback): build from source
 - Commands:
   - `pip install -U pip setuptools wheel`
   - `pip install -v "git+https://github.com/facebookresearch/pytorch3d.git@stable"`
@@ -55,7 +55,7 @@ Install PyTorch3D from the official wheel index:
 
 ---
 
-## 🗂️ Dataset format (FIRE)
+### 🗂️ Dataset format (FIRE)
 
 This repo includes a FIRE dataset loader: `loaders/firereg_loader.py`.
 
@@ -68,7 +68,7 @@ Your `--datasets_path` must contain:
 - `<data_root>/geo_kps_1000/`  
   - `P01_1_2.csv`, ...
 
-### ❓ What is `ipa_*`?
+#### ❓ What is `ipa_*`?
 
 These are folder names used by this repo’s FIRE packaging:
 
@@ -84,7 +84,7 @@ They are not a universal FIRE naming requirement—just the structure expected b
 
 ---
 
-## 🚀 Quick Start (exact commands)
+### 🚀 Quick Start (exact commands)
 
 Minimal sanity run on split A (GCN / grid nodes):  
 - `python gpo.py --n_iters 2 --enable_geo_init 0 --field_split A`
@@ -94,7 +94,7 @@ Run only one sample (P14) and save warped images:
 
 ---
 
-## 🧪 Modes and mapping to CLI flags
+### 🧪 Modes and mapping to CLI flags
 
 **🧩 DCN mode (descriptor control nodes)**  
 Uses `geo_kps_<geo_num>/<sub_id>_1_2.csv` as initialization:  
@@ -106,7 +106,7 @@ Uses a regular grid defined by `--node_shape`:
 
 ---
 
-## ⚙️ Key arguments
+### ⚙️ Key arguments
 
 | Flag | Example | Meaning | Notes |
 |---|---:|---|---|
@@ -117,7 +117,7 @@ Uses a regular grid defined by `--node_shape`:
 
 ---
 
-## 📤 Outputs
+### 📤 Outputs
 
 **📄 CSV results**  
 Saved to: `results/<dataset>/<auto_generated_name>.csv`  
@@ -131,7 +131,7 @@ If `--save_losses 1`, per-iteration losses are saved via `utils/setters.py`.
 
 ---
 
-## 📚 Citation
+### 📚 Citation
 
 @InProceedings{TiaXin_Gaussian_MICCAI2025,
         author = { Tian, Xin AND Wang, Jiazheng AND Zhang, Yuxi AND Chen, Xiang AND Hu, Renjiu AND Li, Gaolei AND Liu, Min AND Zhang, Hang},
