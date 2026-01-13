@@ -35,7 +35,6 @@ On the FIRE dataset, GPOreg achieves:
 pip install -r requirements.txt
 ```
 
-```markdown
 ## 🧱 Install PyTorch3D (required)
 
 This project uses `pytorch3d.ops.knn_points` for fast KNN on GPU. PyTorch3D must be installed with **CUDA support**, otherwise you may see:
@@ -144,6 +143,6 @@ If `--save_losses 1`, per-iteration losses are saved via `utils/setters.py`.
         month = {September},
         page = {218 -- 228}
 }
-```
+
 
 
