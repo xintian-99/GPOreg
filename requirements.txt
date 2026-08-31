@@ -1,0 +1,16 @@
+# Core scientific stack
+numpy==1.23.5
+scipy==1.13.1
+pandas==2.2.3
+matplotlib==3.9.4
+opencv-python==4.11.0.86
+tqdm==4.67.1
+
+# Torch stack (install the CUDA/CPU build appropriate for your system)
+torch==2.0.1
+torchvision==0.15.2
+
+# Common utilities used by the PyTorch3D / fvcore ecosystem
+fvcore==0.1.5.post20221221
+iopath==0.1.10
+yacs==0.1.8

@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.DS_Store
+results/
+gpo.zip
+# FIRE data: only the 28-pair TEST split is tracked (A12-A14, P40-P49, S57-S71)
+data/fire/img/*
+!data/fire/img/A1[2-4]_*.jpg
+!data/fire/img/P4[0-9]_*.jpg
+!data/fire/img/S5[7-9]_*.jpg
+!data/fire/img/S6[0-9]_*.jpg
+!data/fire/img/S7[01]_*.jpg
+data/fire/gt_kps/*
+!data/fire/gt_kps/control_points_A1[2-4]_1_2.txt
+!data/fire/gt_kps/control_points_P4[0-9]_1_2.txt
+!data/fire/gt_kps/control_points_S5[7-9]_1_2.txt
+!data/fire/gt_kps/control_points_S6[0-9]_1_2.txt
+!data/fire/gt_kps/control_points_S7[01]_1_2.txt
+gpo2.7z
+*.7z
