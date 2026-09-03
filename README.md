@@ -30,8 +30,6 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 
 If you see `RuntimeError: Not compiled with GPU support`, PyTorch3D was installed without CUDA.
 
----
-
 ## Data
 
 `data/fire/` ships the **28-pair FIRE test subset** used for the numbers above
@@ -46,12 +44,12 @@ data/fire/geo_kps_1000/{ID}_1_2.csv             # 1000 matched vessel keypoints 
 For the full dataset (133 pairs) download [FIRE](https://projects.ics.forth.gr/cvrl/fire/) and
 place all pairs in the same layout; `--field_split A|P|S` then selects the official categories.
 
-## 🚀 Quick Start + 🧪 Modes
+## 🚀 Quick Start +  Modes
 
 > The bundled `data/fire/` contains only the 28-pair `test` split (A12–A14, P40–P49, S57–S71), which is what `python gpo.py` runs by default.
 > Commands that use `--field_split A|P|S` or other pair IDs require the full FIRE dataset placed in the same layout.
 
-### 🧩 DCN mode (descriptor control nodes)
+### DCN mode (descriptor control nodes)
 DCN initializes control nodes from precomputed descriptor correspondences (e.g., `geo_kps_<geo_num>/<sub_id>_1_2.csv`).
 
 - Run DCN (example with `geo_num=1000`):  
@@ -60,7 +58,7 @@ DCN initializes control nodes from precomputed descriptor correspondences (e.g.,
 - DCN single-pair run (P46, 2 iterations, save warped images):  
   `python gpo.py --only_sub P46 --n_iters 2 --save_images 1`
 
-### 🟦 GCN mode (grid control nodes)
+### GCN mode (grid control nodes)
 GCN uses a regular control-node grid (no descriptor initialization); grid resolution is controlled by `--node_shape`.
 
 - Run GCN (example with `node_shape=30`):  
@@ -69,8 +67,6 @@ GCN uses a regular control-node grid (no descriptor initialization); grid resolu
 - Minimal GCN sanity run (split A, 2 iterations) — *requires the full dataset*:  
   `python gpo.py --n_iters 2 --enable_geo_init 0 --field_split A`
  
----
-
 ### Key arguments
 
 | Flag | Example | Meaning | Notes |
@@ -88,7 +84,7 @@ GCN uses a regular control-node grid (no descriptor initialization); grid resolu
 - `results/warped_img/<run_name>/{ID}_1_warped.png` (viridis) and `{ID}_1_warped_rgb.png` (true colour) with `--save_images 1`.
 - `logs/losses/<run_name>.csv` — per-iteration losses (appended across runs).
 
-## Performance
+### Performance
 
 On the FIRE dataset, GPOreg achieves:
 | Setting | TRE (px) | AUC@25 |
