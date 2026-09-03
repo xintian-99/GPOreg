@@ -93,8 +93,8 @@ GCN uses a regular control-node grid (no descriptor initialization); grid resolu
 On the FIRE dataset, GPOreg achieves:
 | Setting | TRE (px) | AUC@25 |
 |---|---|---|
-| Paper — full FIRE (133 pairs) | 6.2 → 2.4 | 0.770 → 0.938 |
-| This repo — bundled 28-pair test split, `python gpo.py` | 5.7 → ~2.6 | ~0.92 |
+| Paper — full FIRE (133 pairs) | ~2.4 | 0.770 → 0.938 |
+| This repo — bundled 28-pair test split, `python gpo.py` | 2.4–2.7 | 0.91–0.93 |
 
 ---
 
