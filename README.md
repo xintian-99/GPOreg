@@ -12,12 +12,6 @@
 
 GPOreg registers a pair of fundus images by test-time optimization of a sparse set of **Gaussian primitives** (control nodes), each with a trainable position, displacement and radius. The dense displacement field is obtained by K-nearest-neighbour Gaussian blending of the nodes, so the method stays well-conditioned even in vessel-poor regions where image gradients are sparse. Nodes are either **DCN** (descriptor control nodes, placed on matched vessel keypoints) or **GCN** (a regular grid). 
 
-## Performance
-
-On the FIRE dataset, GPOreg achieves:
-- **Target Registration Error**: Reduced from 6.2px to ~2.4px
-- **AUC at 25px**: Increased from 0.770 to 0.938
-
 ## Installation
 
 Tested with Python 3.9, PyTorch 2.0.1 + CUDA 11.7, PyTorch3D 0.7.4.
@@ -94,6 +88,13 @@ GCN uses a regular control-node grid (no descriptor initialization); grid resolu
 - `results/warped_img/<run_name>/{ID}_1_warped.png` (viridis) and `{ID}_1_warped_rgb.png` (true colour) with `--save_images 1`.
 - `logs/losses/<run_name>.csv` — per-iteration losses (appended across runs).
 
+## Performance
+
+On the FIRE dataset, GPOreg achieves:
+| Setting | TRE (px) | AUC@25 |
+|---|---|---|
+| Paper — full FIRE (133 pairs) | 6.2 → 2.4 | 0.770 → 0.938 |
+| This repo — bundled 28-pair test split, `python gpo.py` | 5.7 → ~2.6 | ~0.92 |
 
 ---
 
